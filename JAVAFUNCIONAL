@@ -1,0 +1,75 @@
+CLASICO
+boolean hasRed = false;
+for (String color : colors) {
+   if (color.equals("red")) {
+      hasRed = true;
+      break;
+   }
+}
+System.out.println("Has color red? " + hasRed);
+
+JAVA FUNCIONAL CON STREAM
+
+System.out.println(“Has color red?:” + colors.contains(“red”));
+
+CLASICO
+package com.arquitecturajava.streams;
+ 
+import java.util.ArrayList;
+ 
+public class Principal {
+ 
+ public static void main(String[] args) {
+ 
+ ArrayList<Gasto> lista= new ArrayList<Gasto>();
+ 
+ lista.add(new Gasto("A",80));
+ lista.add(new Gasto("B",50));
+ lista.add(new Gasto("C",70));
+ lista.add(new Gasto("D",95));
+ 
+ double totalPago=0;
+ 
+ for (Gasto g:lista) {
+ 
+ if (g.getImporte()*1.21<100) {
+ 
+ totalPago=totalPago+ g.getImporte()*1.21;
+ 
+ }
+ }
+ 
+ System.out.println(totalPago);
+ 
+ }
+ 
+}
+JAVA FUNCIONAL CON STREAM
+
+package com.arquitecturajava.streams;
+ 
+import java.util.ArrayList;
+ 
+public class PrincipalFuncional {
+ 
+public static void main(String[] args) {
+ 
+ArrayList<Gasto> lista= new ArrayList<Gasto>();
+ 
+lista.add(new Gasto("A",80));
+lista.add(new Gasto("B",50));
+lista.add(new Gasto("C",70));
+lista.add(new Gasto("D",95));
+ 
+double resultado=lista.stream()
+.mapToDouble(gasto->gasto.getImporte()*1.21)
+.filter(gasto->gasto<100)
+.sum();
+ 
+System.out.println(resultado);
+ 
+}
+ 
+}
+ 
+&nbsp;
