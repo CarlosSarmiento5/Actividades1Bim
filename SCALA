@@ -1,0 +1,18 @@
+val raiz = 10 // Numero ha sacar la raiz
+def fun (x: Double) : Double = math.pow(x,2)-raiz //funcion
+def dev (x: Double) : Double = 2*x //Derivada de la funcion
+val xi = 3 // aproximación de raiz
+val i = 4 // Numero de iteraciones para llegar al resultado
+def NewtonRaphson (fun: Double => Double, dev: Double => Double, xi: Double,i:Int): Double = {
+  val fdiv = fun(xi) / dev(xi)
+  val x = xi - fdiv
+  val c = i -1
+  val n =0
+  print(xi) // vemos los resultados en cada iteracion
+  print("    ")
+  if (c == -1)
+    xi
+  else NewtonRaphson(fun,dev,x,c)
+
+}
+val resultado = NewtonRaphson(fun, dev, xi,i)  // para llegar al resultado se necesito 4 iteraciones
