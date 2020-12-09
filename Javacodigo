@@ -1,0 +1,12 @@
+        BiFunction<Double, Integer, Double> func = (x1,x2)-> Math.pow(x1,2)-x2;
+        Function<Double, Double> f1 =(1)-> 1*2;
+         
+         BiFunction<Integer, Double, Double> cal = new BiFunction<Integer,Double, Double>() {
+             @Override
+             public Double apply (Integer num, Double x1){
+                 Double c=x1-func.apply(x1,num)/f1.apply(x1);
+                 return((c-Math.sqrt(num)))<0.0000001 ? c : apply(num,c);
+                 
+             }
+                      
+         };
